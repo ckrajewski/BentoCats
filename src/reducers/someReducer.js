@@ -1,12 +1,25 @@
-export default function reducer(state={
+export  function CatPicReducer(state={
 	fetching: false,
 	data:{}
 }, action){
 	switch(action.type){
-		case "RECEIVED_STUFF":{
+		case "RECEIVED_CAT_PICS":{
 			return {...state,fetched:true,data:action.payload};	
 		}
-		case "RECEIVED_WEATHER_STUFF_ERROR":{
+		case "RECEIVED_CAT_PICS_ERROR":{
+		}	
+	}
+	return state;
+}
+export function CatFactReducer(state={
+	fetching: false,
+	data:{}
+}, action){
+	switch(action.type){
+		case "RECEIVED_CAT_FACTS":{
+			return {...state,fetched:true,data:action.payload};	
+		}
+		case "RECEIVED_CAT_FACTS_ERROR":{
 		}	
 	}
 	return state;

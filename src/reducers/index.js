@@ -1,6 +1,8 @@
 import { combineReducers } from "redux"
-import reducer from "./someReducer";
+import {CatPicReducer, CatFactReducer} from "./someReducer";
 
 export default combineReducers({
-	data: reducer
+	catPics: CatPicReducer,
+	catFacts: CatFactReducer,
+
 })

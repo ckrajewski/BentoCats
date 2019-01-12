@@ -5,7 +5,6 @@ const http = require('http');
 const fetch = require('node-fetch');
 const axios = require('axios');
 const bodyParser = require("body-parser");
-const { parseString } = require("xml2js");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -13,16 +12,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('port', (process.env.PORT || 3000));
 
 app.get('/fetchCatFactsAndPics', (req, res) => {
-    axios.get('http://thecatapi.com/api/images/get?format=xml&results_per_page=25')
+    axios.get('http://thecatapi.com/api/images/get?format=json&results_per_page=25')
         .then(response => {
-            parseString(response.data, (error, result) => {
-                const catPics = result.response.data[0].images[0].image;
+           // parseString(response.data, (error, result) => {
+
+                const catPics = response.data;
                 axios.get('https://catfact.ninja/facts?limit=25')
                     .then(response => {
                         const catFacts = response.data.data;
                         const catPicsAndFacts = catPics.reduce((catPicsAndFacts, image, index) => {
                             catPicsAndFacts.push({
-                                url: image.url[0],
+                                url: image.url,
                                 fact: catFacts[index].fact
                             });
                             return catPicsAndFacts;
@@ -32,7 +32,7 @@ app.get('/fetchCatFactsAndPics', (req, res) => {
                     .catch(error => {
                         console.log(error);
                     });
-            });
+          //  });
 
         })
         .catch(error => {

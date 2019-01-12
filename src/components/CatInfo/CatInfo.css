@@ -1,0 +1,38 @@
+.imageBoarder {
+	border: solid grey 1px;
+	max-width:40%;
+	margin:2%;
+}
+.fact {
+	word-wrap: normal;
+	padding-top: 5%;
+}
+
+.image {
+	max-width: 100%;
+	display: block;
+	height: auto;
+	margin: auto;
+}
+
+.catInfoGrid {
+	display: flex;
+	padding:2%;
+}
+.imageContainer {
+
+}
+.favorite {
+	width:84px;
+	height: 84px;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.selectedFavorite {
+	background-image:url('/images/star.jpeg');
+}
+
+.unselectedFavorite {
+		background-image:url('/images/blankStar.jpg');
+
+}

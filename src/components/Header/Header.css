@@ -1,0 +1,32 @@
+.headerBar {
+	position: fixed;
+	top:0;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	z-index: 10;
+	background-color: lightgrey;
+	width: 100%;
+}
+
+.headerContainer {
+	
+	position: relative;
+	text-align: center;
+}
+
+.header {
+	width: 75%;
+	font-size: 1.2em;
+	text-align: center;
+	align-self: center;
+}
+
+.flex {
+	display: flex;
+}
+.switchesContainer {
+	justify-content: flex-end;
+}
+.switchContainer {
+	margin-right: 8%;
+}

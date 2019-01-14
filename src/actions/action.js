@@ -1,25 +1,13 @@
 import axios from "axios";
 
-export function fetchCatPics(){
+export function fetchCatFactsAndPics(){
 	return function(dispatch) {
-		axios.get('/api/fetchCatPics')
+		axios.get('/api/fetchCatFactsAndPics')
 		.then((response) => {
-		  dispatch({type: "RECEIVED_CAT_PICS",payload:response.data})
+		  dispatch({type: "RECEIVED_CAT_FACTS_AND_PICS",payload:response.data})
 		 })
 		 .catch((err) =>{
-		 	dispatch({type: "RECEIVED_CAT_PICS_ERROR",payload:err})
-		 })
-	}	
-}
-
-export function fetchCatFacts(){
-	return function(dispatch) {
-		axios.get('/api/fetchCatFacts')
-		.then((response) => {
-		  dispatch({type: "RECEIVED_CAT_FACTS",payload:response.data})
-		 })
-		 .catch((err) =>{
-		 	dispatch({type: "RECEIVED_CAT_FACTS_ERROR",payload:err})
+		 	dispatch({type: "RECEIVED_CAT_FACTS_AND_PICS_ERROR",payload:err})
 		 })
 	}	
 }

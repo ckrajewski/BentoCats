@@ -2,7 +2,8 @@
 
 ## Contribution
 
-If you like to help and contribute (there's lot root for improvements! I've collected a list of [Improvements and New Features](#improvements) you're more than welcome! 
+I've collected a list of [Improvements and New Features](#improvements).
+If you'd like to help by contributing to the project, you're more than welcome! 
 
 ## Install and run
 

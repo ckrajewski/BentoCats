@@ -2,8 +2,8 @@
 
 ## Contribution
 
-I've collected a list of [Improvements and New Features](#improvements).
-If you'd like to help by contributing to the project, you're more than welcome! 
+I've collected a list of [Improvements and New Features](#improvements) that need to be done.
+If you'd like to help by contributing to the project, you're more than welcome to! 
 
 ## Install and run
 

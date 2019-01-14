@@ -33,7 +33,6 @@ In case you have any comments, questions, bugs, enhancements feel free to open a
 - [ ] Add ESLint
 - [ ] Add TypeScript
 - [ ] Look into PostCSS. Has lots of packages (like adding namespacing to stylized components)
-- [ ] 
 
 # New Features 
 - [ ] Add infinite scrolling support in API Layer as well as in the front-end (in React)

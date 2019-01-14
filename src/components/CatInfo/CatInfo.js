@@ -7,6 +7,7 @@ export default class CatInfo extends React.Component {
     let favoriteStyling = favorite ? "selectedFavorite" : "unselectedFavorite";
     favoriteStyling = "favorite " + favoriteStyling;
     let ViewOnlyBackButton = null;
+    const viewOnlyOpacityStyling = viewOnlyIndex > -1 ? {opacity:1, cursor:"default"} : {};
     if(viewOnlyIndex > -1){
       favoriteStyling="";
       ViewOnlyBackButton = <div className="backButton" onClick={this.props.backHomeHandler}>
@@ -18,7 +19,7 @@ export default class CatInfo extends React.Component {
       <div className="imageBoarder" >
         <div className="catInfoGrid">
         {ViewOnlyBackButton}
-          <div className="imageContainer">
+          <div className="imageAndFactContainer" style={viewOnlyOpacityStyling}>
             <div onClick={this.props.favoriteHandler} className={favoriteStyling}/>
             <img src={url} className="image" onClick={this.props.viewPicHandler} />
             <div className ="fact"> {fact} </div>

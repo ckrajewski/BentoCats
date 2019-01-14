@@ -42,18 +42,20 @@
 	height: auto;
 	margin: auto;
 	border-radius:15px;
-	cursor: 
-}
-.image:hover{
-	 opacity: 0.5;
-	 cursor: url('/images/magnifiying_glass.png'), auto;
 }
 
-.imageContainer {
+.imageAndFactContainer {
 	margin: auto;
 	position: relative;
+	opacity: 0.5; 
 }
 
+.imageAndFactContainer:hover{
+	margin: auto;
+	position: relative;
+	opacity: 1; 
+	cursor: url('/images/magnifiying_glass.png'), auto;
+}
 .favorite {
 	width:70px;
 	height: 70px;
@@ -62,10 +64,14 @@
 	position: absolute;
 	cursor: pointer;
 }
+.favorite:hover {
+	opacity: 1;
+	z-index:1;
+}
 .selectedFavorite {
 	background-image:url('/images/filledStar.png');
 }
 
 .unselectedFavorite {
-		background-image:url('/images/blankStar.png');
+	background-image:url('/images/blankStar.png');
 }

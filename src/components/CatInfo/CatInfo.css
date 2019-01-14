@@ -40,18 +40,15 @@
 	max-width: 100%;
 	display: block;
 	height: auto;
-	margin: auto;
 	border-radius:15px;
 }
 
 .imageAndFactContainer {
-	margin: auto;
 	position: relative;
 	opacity: 0.5; 
 }
 
 .imageAndFactContainer:hover{
-	margin: auto;
 	position: relative;
 	opacity: 1; 
 	cursor: url('/images/magnifiying_glass.png'), auto;

@@ -3,12 +3,13 @@ import "./CatInfo.css";
 export default class CatInfo extends React.Component {
     
   render() {
-    const {url, fact, favorite, viewOnlyIndex} = this.props;
+    const {url, fact, favorite, viewOnlyId} = this.props;
     let favoriteStyling = favorite ? "selectedFavorite" : "unselectedFavorite";
     favoriteStyling = "favorite " + favoriteStyling;
     let ViewOnlyBackButton = null;
-    const viewOnlyOpacityStyling = viewOnlyIndex > -1 ? {opacity:1, cursor:"default"} : {};
-    if(viewOnlyIndex > -1){
+    //if individual viewing, remove opacity and show BackButton
+    const viewOnlyOpacityStyling = viewOnlyId > -1 ? {opacity:1, cursor:"default"} : {};
+    if(viewOnlyId > -1){
       favoriteStyling="";
       ViewOnlyBackButton = <div className="backButton" onClick={this.props.backHomeHandler}>
                               <div className="leftArrow"> </div>

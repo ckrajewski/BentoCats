@@ -35,6 +35,7 @@ In case you have any comments, questions, bugs, enhancements feel free to open a
 - [ ] Add TypeScript
 - [ ] Look into PostCSS. Has lots of packages (like adding namespacing to stylized components)
 - [ ] Seperate webpack into dev and prod configs
+- [ ] Add better styling support for smaller sized images and gifs
 - [ ] Get client feedback on UI. e.g. header colors could be less ugly :/ 
 
 # New Features 

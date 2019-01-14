@@ -40,4 +40,3 @@ In case you have any comments, questions, bugs, enhancements feel free to open a
 # New Features 
 - [ ] Add infinite scrolling support in API Layer as well as in the front-end (in React)
 - [ ] Add stenciling to show that resources (like images) are being loaded
-- [ ] Find a way to add caching for sorting algorthim (Sorting algorithm currently fires everytime sort is toggled. This is because we want to contine to sort as your scrolls and get more cat pics and fact)

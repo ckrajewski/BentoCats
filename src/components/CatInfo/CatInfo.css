@@ -1,11 +1,39 @@
+.backButton {
+ background-color:lightgrey;
+ border-radius: 15px;
+ padding: 2%;
+ align-self: flex-start;
+ cursor: pointer;
+ display: flex;
+ margin-right:10%;
+}
+
+.leftArrow {
+	background-image:url('/images/left_chevron.png');
+	width:35px;
+	height: 35px;
+	display: inline-block;
+}
+.homeText {
+	display: inline-block;
+	align-self: center;
+}
+.catInfoGrid {
+	display: flex;
+}
 .imageBoarder {
-	border: solid grey 1px;
-	max-width:40%;
-	margin:2%;
+	max-width:30%;
+	padding-bottom:2%;
+	align-self: flex-start;
 }
 .fact {
 	word-wrap: normal;
 	padding-top: 5%;
+	padding-left: 2%;
+	padding-right: 2%;
+	text-align: center;
+	margin: auto;
+	max-width: 70%;
 }
 
 .image {
@@ -13,26 +41,31 @@
 	display: block;
 	height: auto;
 	margin: auto;
+	border-radius:15px;
+	cursor: 
+}
+.image:hover{
+	 opacity: 0.5;
+	 cursor: url('/images/magnifiying_glass.png'), auto;
 }
 
-.catInfoGrid {
-	display: flex;
-	padding:2%;
-}
 .imageContainer {
-
+	margin: auto;
+	position: relative;
 }
+
 .favorite {
-	width:84px;
-	height: 84px;
+	width:70px;
+	height: 70px;
 	background-size: contain;
 	background-repeat: no-repeat;
+	position: absolute;
+	cursor: pointer;
 }
 .selectedFavorite {
-	background-image:url('/images/star.jpeg');
+	background-image:url('/images/filledStar.png');
 }
 
 .unselectedFavorite {
-		background-image:url('/images/blankStar.jpg');
-
+		background-image:url('/images/blankStar.png');
 }

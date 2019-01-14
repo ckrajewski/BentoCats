@@ -27,7 +27,8 @@ class CatsBoard extends React.Component {
             favourites: [],
             catFactsAndPics: [],
             sortChecked: false,
-            sortedCatFactsAndPics: []
+            sortedCatFactsAndPics: [],
+            viewOnlyIndex: -1,
         }
     }
 
@@ -42,7 +43,8 @@ class CatsBoard extends React.Component {
         return catFactsAndPicsCopy;
 
     }
-    handleFavorite = (index) => {
+    handleFavorite = (event, index) => {
+        event.stopPropagation();
         const { catFactsAndPics } = this.state;
         let newCatFactsAndPics = Object.assign([], catFactsAndPics);
         newCatFactsAndPics[index].favorite = !newCatFactsAndPics[index].favorite;
@@ -58,12 +60,20 @@ class CatsBoard extends React.Component {
         this.setState(({ showFavorites }) => ({ showFavorites: !showFavorites }));
     }
      handleSortToggle = () => {
-        const thissortedCatFactsAndPics = this.sort();
-        debugger;
-        this.setState(({ sortChecked, sortedCatFactsAndPics }) => ({ sortChecked: !sortChecked, sortedCatFactsAndPics:thissortedCatFactsAndPics}));
+        const thisSortedCatFactsAndPics = this.sort();
+        this.setState(({ sortChecked, sortedCatFactsAndPics }) => ({ sortChecked: !sortChecked, sortedCatFactsAndPics:thisSortedCatFactsAndPics}));
+    }
+
+    viewPicHandler = (event,index) => {
+      event.stopPropagation();
+      this.setState({viewOnlyIndex: index});
+    }
+
+    backHomeHandler = (event) => {
+      this.viewPicHandler(event, -1);
     }
     render() {
-        const { showFavorites, catFactsAndPics, sortChecked,sortedCatFactsAndPics } = this.state;
+        const { showFavorites, catFactsAndPics, sortChecked,sortedCatFactsAndPics, viewOnlyIndex } = this.state;
         const { catPicData, catFacts, catFactsAndPicsProps, fetchCatPics, fetchCatFacts, fetchCatFactsAndPics } = this.props;
 
         //DEBUG STYLING
@@ -80,14 +90,16 @@ class CatsBoard extends React.Component {
             //fetchCatFactsAndPics();
             this.setState({ catFactsAndPics: gCatFactsAndPicsList });
         }
-
+        if(viewOnlyIndex>-1){
+          catFactsAndPicsList=[catFactsAndPicsList[viewOnlyIndex]];
+        }
         return (
             <div>
-    <Header onFavoritesToggle={this.handleFavoriteToggle} favoritesChecked={showFavorites} onSortToggle={this.handleSortToggle} sortChecked={sortChecked}/>
+    <Header onFavoritesToggle={this.handleFavoriteToggle} favoritesChecked={showFavorites} onSortToggle={this.handleSortToggle} sortChecked={sortChecked} viewOnlyIndex={viewOnlyIndex} />
     <div className="grid">
       {
         catFactsAndPicsList.map((picsAndFacts,index) => {
-            return <CatInfo url={picsAndFacts.url} fact={picsAndFacts.fact} favoriteHandler={() => this.handleFavorite(index)} favorite={picsAndFacts.favorite}></CatInfo>
+            return <CatInfo url={picsAndFacts.url} fact={picsAndFacts.fact} favoriteHandler={(event) =>{this.handleFavorite(event, index)}} favorite={picsAndFacts.favorite} viewPicHandler={(event) => this.viewPicHandler(event, index)} viewOnlyIndex={viewOnlyIndex} backHomeHandler={(event) => this.backHomeHandler(event)}></CatInfo>
           })
         }
      </div> 

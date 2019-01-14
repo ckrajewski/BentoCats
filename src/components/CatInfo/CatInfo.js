@@ -6,7 +6,6 @@ export default class CatInfo extends React.Component {
     const {url, fact, favorite, viewOnlyIndex} = this.props;
     let favoriteStyling = favorite ? "selectedFavorite" : "unselectedFavorite";
     favoriteStyling = "favorite " + favoriteStyling;
-    //letViewOnlyBackButton =null
     let ViewOnlyBackButton = null;
     if(viewOnlyIndex > -1){
       favoriteStyling="";

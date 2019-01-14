@@ -31,7 +31,10 @@ class CatsBoard extends React.Component {
             viewOnlyIndex: -1,
         }
     }
-
+    componentWillMount() {
+        const {fetchCatFactsAndPics, catFactsAndPicsProps} = this.props;
+        fetchCatFactsAndPics();
+    }
     sort = () => {
         const { catFactsAndPics } = this.state;
         let catFactsAndPicsCopy = Object.assign([],catFactsAndPics);
@@ -74,10 +77,11 @@ class CatsBoard extends React.Component {
     }
     render() {
         const { showFavorites, catFactsAndPics, sortChecked,sortedCatFactsAndPics, viewOnlyIndex } = this.state;
-        const { catPicData, catFacts, catFactsAndPicsProps, fetchCatPics, fetchCatFacts, fetchCatFactsAndPics } = this.props;
+        const { catPicData, catFacts, catFactsAndPicsProps, fetchCatPics} = this.props;
 
-        //DEBUG STYLING
-
+        if(catFactsAndPicsProps.length > 0 && catFactsAndPics.length === 0) {
+          this.setState({ catFactsAndPics: catFactsAndPicsProps });
+        }
         let catFactsAndPicsList = catFactsAndPics;
 
         if(sortChecked) {
@@ -86,24 +90,20 @@ class CatsBoard extends React.Component {
         if (showFavorites) {
             catFactsAndPicsList = this.filterFavoriteCatFactsAndPics(catFactsAndPicsList);
         }
-        if (catFactsAndPicsProps.length === 0 && catFactsAndPics.length === 0) {
-            //fetchCatFactsAndPics();
-            this.setState({ catFactsAndPics: gCatFactsAndPicsList });
-        }
         if(viewOnlyIndex>-1){
           catFactsAndPicsList=[catFactsAndPicsList[viewOnlyIndex]];
         }
         return (
             <div>
-    <Header onFavoritesToggle={this.handleFavoriteToggle} favoritesChecked={showFavorites} onSortToggle={this.handleSortToggle} sortChecked={sortChecked} viewOnlyIndex={viewOnlyIndex} />
-    <div className="grid">
-      {
-        catFactsAndPicsList.map((picsAndFacts,index) => {
-            return <CatInfo url={picsAndFacts.url} fact={picsAndFacts.fact} favoriteHandler={(event) =>{this.handleFavorite(event, index)}} favorite={picsAndFacts.favorite} viewPicHandler={(event) => this.viewPicHandler(event, index)} viewOnlyIndex={viewOnlyIndex} backHomeHandler={(event) => this.backHomeHandler(event)}></CatInfo>
-          })
-        }
-     </div> 
-     </div>
+              <Header onFavoritesToggle={this.handleFavoriteToggle} favoritesChecked={showFavorites} onSortToggle={this.handleSortToggle} sortChecked={sortChecked} viewOnlyIndex={viewOnlyIndex} />
+              <div className="grid">
+              {
+                catFactsAndPicsList.map((picsAndFacts,index) => {
+                  return <CatInfo url={picsAndFacts.url} fact={picsAndFacts.fact} favoriteHandler={(event) =>{this.handleFavorite(event, index)}} favorite={picsAndFacts.favorite} viewPicHandler={(event) => this.viewPicHandler(event, index)} viewOnlyIndex={viewOnlyIndex} backHomeHandler={(event) => this.backHomeHandler(event)}></CatInfo>
+                })
+              }
+              </div> 
+            </div>
         );
     }
 }

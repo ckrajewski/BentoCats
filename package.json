@@ -26,6 +26,7 @@
     "body-parser": "^1.18.3",
     "css-loader": "^1.0.0",
     "jest": "^23.5.0",
+    "js-string-escape": "^1.0.1",
     "node-fetch": "^2.2.0",
     "node-geocoder": "^3.22.0",
     "npm": "^6.4.0",
@@ -46,6 +47,6 @@
     "webpack-dev-server": "^3.1.14"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.9"
   }
 }

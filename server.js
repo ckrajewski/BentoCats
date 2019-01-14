@@ -5,6 +5,8 @@ const http = require('http');
 const fetch = require('node-fetch');
 const axios = require('axios');
 const bodyParser = require("body-parser");
+const jsStringEscape = require('js-string-escape')
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,7 +25,7 @@ app.get('/fetchCatFactsAndPics', (req, res) => {
                         const catPicsAndFacts = catPics.reduce((catPicsAndFacts, image, index) => {
                             catPicsAndFacts.push({
                                 url: image.url,
-                                fact: catFacts[index].fact
+                                fact: jsStringEscape(catFacts[index].fact)
                             });
                             return catPicsAndFacts;
                         }, []);
